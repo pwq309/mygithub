@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="styles/styles.css" type="text/css" media="screen" />
+</head>
+<body>
+<h1>出招吧！少年！</h1>
+<div id="threeImg">
+    <img id="jiandao" src="https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/jiandao.jpg?raw=true" alt="scissors" />
+    <img id="shitou" src="https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/shitou.jpg?raw=true" alt="rock" />
+    <img id="bu" src="https://github.com/baidu-ife/ife/blob/master/2015_summer/asset/bu.jpg?raw=true" alt="paper" />
+</div>
+<br/>
+<img id="my-result" />
+<span id="vs">VS</span>
+<img id="computer-result" />
+<p id="result-text"></p>
+<div id="statis">
+    <table>
+        <tr>
+            <th>结果</th>
+            <td>胜</td>
+            <td>平</td>
+            <td>负</td>
+        </tr>
+        <tr>
+            <th>次数</th>
+            <td id="win">0</td>
+            <td id="tie">0</td>
+            <td id="lose">0</td>
+        </tr>
+    </table>
+</div>
+<script src="scripts/addLoadEvent.js"></script>
+<script src="scripts/displayResult.js"></script>
+</body>
+</html>

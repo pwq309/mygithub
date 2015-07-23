@@ -1,0 +1,40 @@
+body{
+    font-family:helvetica, Arial, serif;
+    text-align: center;
+}
+h1{
+    font-size:40px;
+    color:#6495ed;
+    margin-top:20px;
+    margin-bottom:40px;
+}
+#vs{
+    display:none;
+    width: 150px;
+    height: 50px;
+    font-size:40px;
+}
+#result-text{
+    font-size:40px;
+    color:#6495ed;
+    margin-top:30px;
+}
+table{
+    width:30%;
+    margin:0px auto;
+    position:fixed;
+    left:30%;
+    right:30%;
+    bottom:30px;
+}
+td{
+    text-align:center;
+    border:2px solid #A7C942;
+    padding:3px;
+}
+th{
+    font-size:1.1em;
+    background-color: #A7C942;
+    color:#ffffff;
+}
+
