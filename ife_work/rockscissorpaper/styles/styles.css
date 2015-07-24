@@ -37,4 +37,13 @@ th{
     background-color: #A7C942;
     color:#ffffff;
 }
-
+#my-result {
+    border-style:solid;
+    border-width:10px;
+    border-color:transparent;
+}
+#computer-result {
+    border-style:solid;
+    border-width:10px;
+    border-color:transparent;
+}
