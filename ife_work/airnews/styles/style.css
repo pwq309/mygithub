@@ -1,0 +1,104 @@
+body {
+    font-family: Calibri, Microsoft Yahei, Sans-serif;
+    background: #f0f0f0;
+}
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+h1 {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+}
+.legend {
+    width: 490px;
+    margin: 30px auto;
+}
+.legend div {
+    height: 20px;
+}
+.panel {
+    /*height: 15px;*/
+    width: 433px;
+    margin: 0 auto;
+}
+.panel .subbar {
+    display: inline-block;
+    float: left;
+    height: 18px;
+    width: 70px;
+    margin: 1px;
+}
+.bound {
+    /*width: 500px;*/
+    margin-left: 24px;
+}
+.boundnum {
+    display: inline-block;
+    float: left;
+    width: 70px;
+    margin: 0;
+    /*margin-left: 50px;*/
+}
+.exp {
+    margin-left: 60px;
+}
+.expword {
+    display: inline-block;
+    float: left;
+    /*font-size: 12px;*/
+    width: 70px;
+}
+
+.chart {
+    width: 450px;
+    margin: 30px auto;
+    /*list-style: none;*/
+}
+li.bar span {
+    float: left;
+}
+.month {
+    width: 3em;
+    margin-right: 10px;
+}
+.bar {
+    display: block;
+    height: 20px;
+    margin: 12px;
+}
+.subbar {
+    text-align: center;
+    height: 20px;
+}
+
+.numbar {
+    position: fixed;
+    background: #000;
+    opacity: 0.7;
+    color: white;
+    text-align: center;
+    width: 40px;
+    height: 20px;
+}
+
+.level1 {
+    background: #43ce17
+}
+.level2 {
+    background: #efdc31;
+}
+.level3 {
+    background: #fa0;
+}
+.level4 {
+    background: #ff401a;
+}
+.level5 {
+    background: #d20040;
+}
+.level6 {
+    background: #9c0ade;
+}
