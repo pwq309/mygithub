@@ -2,12 +2,6 @@
  * Created by RibPan on 2015/7/23.
  */
 function displayResult(){
-    if(!document.getElementsByTagName) return false;
-    if(!document.getElementById) return false;
-    if(!document.getElementById("jiandao")) return false;
-    if(!document.getElementById("shitou")) return false;
-    if(!document.getElementById("bu")) return false;
-    if(!document.getElementById("threeImg")) return false;
     //取得所有缩略词
     var jiandao = document.getElementById("jiandao");
     var shitou = document.getElementById("shitou");
