@@ -1,0 +1,872 @@
+// this case was design to send data including all commands!!!!
+
+
+
+//*****************************1.test select***********************************
+/*
+# 2000011 U_INTERROGATOR_BFM.push_to_Ready;
+# 2000011 U_INTERROGATOR_BFM.send_Nak;
+
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UAC,`MM_NN,16'b0000_0000_0010_0000,8'b0011_0000);
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UAC,`MK_NN,16'b0000_0000_0010_0000,8'b0011_0000);
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UAC,`MM_NK,16'b0000_0000_0010_0000,8'b0011_0000);
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UAC,`MN_NN,16'b0000_0000_0010_0000,8'b0011_0000);
+
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UAC,`MM_NN,16'b0000_0000_0001_0000,8'b1111_0000);
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UAC,`MK_NN,16'b0000_0000_0010_0000,8'b1111_0000);
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UAC,`MM_NK,16'b0000_0000_0000_0000,8'b0011_0000);
+
+
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UDF,`MM_NN,16'b0000_0000_1010_0000,8'b0011_0000);
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UDF,`MK_NN,16'b0000_0000_0010_0000,8'b0011_0000);
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UDF,`MM_NK,16'b0000_0000_0010_0000,8'b0011_0000);
+# 2000000 U_INTERROGATOR_BFM.send_Sort(`UDF,`MN_NN,16'b0000_0000_0010_0000,8'b0011_0000);
+
+*/
+
+///******************************2. TEST QUERY and Anti-Collision cmd************************************************
+
+/*# 2000011 U_INTERROGATOR_BFM.push_to_Ready;
+
+# 1000001 U_INTERROGATOR_BFM.send_Query(2'b00, `TARGET0,`TREXT,`DR_0d25,`M_MILLER2); // TAG REPLY
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Query_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+//# 30000 U_INTERROGATOR_BFM.send_Disperse; 
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Query_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+# 60000 U_INTERROGATOR_BFM.send_Ack;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Ack_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 60000 U_INTERROGATOR_BFM.send_Ack;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Ack_Reply;
+U_INTERROGATOR_BFM.send_done = $time;*/
+
+
+/*
+
+# 1000001 U_INTERROGATOR_BFM.send_Query(2'b01, `TARGET0,`TREXT,`DR_0d25,`M_FM0); // TAG REPLY
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Query_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Nak;
+
+# 1000001 U_INTERROGATOR_BFM.send_Query(`TAG_MATCH,`TARGET0,`TREXT,`DR_0d25,`M_FM0); // TAG REPLY
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Query_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000001 U_INTERROGATOR_BFM.send_Query(`TAG_NON_MATCH,`TARGET1,`TREXT,`DR_0d25,`M_FM0); // TAG REPLY
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Query_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+# 1000001 U_INTERROGATOR_BFM.send_Divide(`POSITION0); 
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Query_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000001 U_INTERROGATOR_BFM.send_QueryRep; 
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Query_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 9000 U_INTERROGATOR_BFM.send_Ack;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Ack_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000001 U_INTERROGATOR_BFM.send_Query(2'b10, `TARGET0,`TREXT,`DR_0d25,`M_FM0); // TAG REPLY
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Query_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+/*
+//
+
+
+
+///////////////////////////////////////////////////////////
+//                      Test Read                        //
+///////////////////////////////////////////////////////////
+
+# 1000011 U_INTERROGATOR_BFM.push_to_Open;
+*/
+
+/*
+//For TBI
+# 1000011 U_INTERROGATOR_BFM.send_Read(`TBI,16'd03,16'd9);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+//# 1000011 U_INTERROGATOR_BFM.send_Nak;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`TBI,16'd00,16'd8);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`TBI,16'd02,16'd03);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`TBI,16'd00,16'd00);
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Read_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+
+//For UAC
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd00,16'd17);
+U_INTERROGATOR_BFM.Decode;   
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd00,16'd18);
+U_INTERROGATOR_BFM.Decode;   
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd01,16'd5);
+U_INTERROGATOR_BFM.Decode;   
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd00,16'd0);
+//U_INTERROGATOR_BFM.Decode;   
+//U_INTERROGATOR_BFM.get_Read_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+ 
+
+//For SEC  对应10区，不可读。写的时候，注意lock命令还不能将其锁定
+# 1000011 U_INTERROGATOR_BFM.send_Read(`SEC,16'd00,16'd6);
+U_INTERROGATOR_BFM.Decode;   
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`SEC,16'd00,16'd1);
+U_INTERROGATOR_BFM.Decode;   
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`SEC,16'd01,16'd1);
+U_INTERROGATOR_BFM.Decode;   
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`SEC,16'd02,16'd1);
+//U_INTERROGATOR_BFM.Decode;   
+//U_INTERROGATOR_BFM.get_Read_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`SEC,16'd03,16'd1);
+//U_INTERROGATOR_BFM.Decode;   
+//U_INTERROGATOR_BFM.get_Read_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`SEC,16'd04,16'd1);
+//U_INTERROGATOR_BFM.Decode;   
+//U_INTERROGATOR_BFM.get_Read_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`SEC,16'd05,16'd1);
+//U_INTERROGATOR_BFM.Decode;   
+//U_INTERROGATOR_BFM.get_Read_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+//Test for UDF
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UDF,16'd20,16'd2);
+U_INTERROGATOR_BFM.Decode;   
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UDF,16'd16,16'd16);
+U_INTERROGATOR_BFM.Decode;   
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UDF,16'd600,16'd384);
+U_INTERROGATOR_BFM.Decode;   
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+/**/
+//
+
+///////////////////////////////////////////////////////////
+//                         Test Write                    //
+///////////////////////////////////////////////////////////
+/*#1000011 U_INTERROGATOR_BFM.push_to_Open;
+
+//For TBI TBI is 00区，不可写，只能读。读的时候，还要注意，lock命令不能将其锁定
+//# 1000011 U_INTERROGATOR_BFM.send_Write(`TBI,16'd00,16'd01,16'hBBBB);
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+//# 1000011 U_INTERROGATOR_BFM.send_Write(`TBI,16'd05,16'd01,16'hBBBB);
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+//For UAC
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UAC,16'd40,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UAC,16'd00,16'd01,16'h04BB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+/*# 1000011 U_INTERROGATOR_BFM.send_Write(`UAC,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UAC,16'd16,16'd1,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UAC,16'd17,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+
+
+//For SEC
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd0,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd1,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd02,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd04,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd05,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+*/
+
+/*
+//For UDF
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UDF,16'd00,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UDF,16'd39,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UDF,16'd96,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UDF,16'd25,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;*/
+
+//
+
+
+
+//
+////////////////////////////////////////////////////////////
+//                     Test Lock                          //
+////////////////////////////////////////////////////////////
+# 1000011 U_INTERROGATOR_BFM.push_to_Open;
+
+/*# 1000011 U_INTERROGATOR_BFM.send_Lock(`UAC,`NR_NW);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd04,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+//# 1000011 U_INTERROGATOR_BFM.send_Refreshrn;*/
+
+//########################//
+//    LOCK PWD VERIFY     //
+//####################### //
+
+//# 1000011 U_INTERROGATOR_BFM.send_Get_RN;
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);     
+//U_INTERROGATOR_BFM.send_done = $time;
+//
+//
+//# 1000011 U_INTERROGATOR_BFM.send_Access(`SEC,4'b0010,16'hFFFF);       //get lock authority
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Access_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+//# 1000001 U_INTERROGATOR_BFM.send_Query(2'b01, `TARGET1,`TREXT,`DR_0d25,`M_FM0); // TAG REPLY
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Query_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+//# 1000011 U_INTERROGATOR_BFM.send_Get_RN;
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+//U_INTERROGATOR_BFM.send_done = $time;
+//
+//
+//# 1000011 U_INTERROGATOR_BFM.send_Access(`SEC,4'b0011,16'hFFFF);       //get lock authority
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Access_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+
+//get UDF write authority
+# 30000 U_INTERROGATOR_BFM.send_Get_RN;       //change # 1000011 to # 30000 to satisfy T2 time
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Access(`UDF,4'b1000,16'h2222);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Access(`UDF,4'b1001,16'h2222);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+//get UDF read authority
+# 30000 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Access(`UDF,4'b0110,16'h1111);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Access(`UDF,4'b0111,16'h1111);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+//# 1000001 U_INTERROGATOR_BFM.send_Query(2'b01, `TARGET0,`TREXT,`DR_0d25,`M_FM0); // TAG REPLY
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Query_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+
+/*For TBI
+//# 1000011 U_INTERROGATOR_BFM.send_Read(`TBI,16'd00,16'd04);
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_Read_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`TBI, 2'b10);
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`TBI, 2'b00);
+//# 1000011 U_INTERROGATOR_BFM.send_Lock(`TBI, 2'b01);
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`TBI,2'b11);
+
+
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`UAC,2'b01);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+//# 1000011 U_INTERROGATOR_BFM.send_Lock(`SEC,2'b11);
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+/*
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`UDF,2'b11);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+/*# 1000011 U_INTERROGATOR_BFM.send_Read(`SEC,16'd00,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 15000000 U_CLK_GEN.rst_flag = U_CLK_GEN.rst_flag + 1 ;
+
+# 1000011 U_INTERROGATOR_BFM.push_to_Open;*/
+
+
+# 30000 U_INTERROGATOR_BFM.send_Read(`TBI,16'd03,16'd01);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Read(`UDF,16'd06,16'd01);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+/*# 1000011 U_INTERROGATOR_BFM.send_Lock(`TBI,`R_W);
+U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`TBI,`R_NW);
+U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`TBI,16'd00,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+//For UAC
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd00,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UAC,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`UAC,2'b10);
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd00,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UAC,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`UAC,`NR_W);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd00,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;*/
+
+# 30000 U_INTERROGATOR_BFM.send_Write(`UAC,16'd06,16'd01,16'hCCCC);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Read(`UAC,16'd06,16'd01);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+//get tag kill authority
+# 30000 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Access(`UDF,4'b0000,16'h0514);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Access(`UDF,4'b0001,16'h0514);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Kill;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Write(`UDF,16'd06,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 30000 U_INTERROGATOR_BFM.send_Read(`UDF,16'd06,16'd01);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+/*# 1000011 U_INTERROGATOR_BFM.send_Lock(`UAC,`R_NW);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd00,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UAC,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+//For SEC
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`SEC,2'b10);
+U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+//# 1000011 U_INTERROGATOR_BFM.send_Lock(`UAC,`NR_NW);
+//U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+//U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+*/
+
+
+//For UDF
+/*
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UDF,16'd00,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UDF,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`UDF,2'b10);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UDF,16'd00,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UDF,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+/*
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`UAC,`NR_W);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd00,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UAC,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`UAC,`R_NW);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Read(`UAC,16'd00,16'd04);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Read_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`UAC,16'd03,16'd01,16'hBBBB);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+//if lock_passwd=32'b0
+# 1000011 U_INTERROGATOR_BFM.push_to_Open;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd00,16'd01,16'h0000);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd01,16'd01,16'h0000);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+//# 15000000 U_CLK_GEN.rst_flag = U_CLK_GEN.rst_flag + 1 ;
+
+# 1000011 U_INTERROGATOR_BFM.push_to_Open;
+
+//########################//
+//    LOCK PWD VERIFY     //
+//####################### //
+
+# 1000011 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Access(4'b0010,16'hFFFF);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Access(4'b0011,16'hFFFF);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Lock(`UAC,`R_NW);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+*/
+
+
+
+/*
+///////////////////////////////////////////////////////////////////
+//                           Test KILL                           //
+///////////////////////////////////////////////////////////////////
+# 1000011 U_INTERROGATOR_BFM.push_to_Open;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd0,16'd01,16'h0000);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd1,16'd01,16'h0000);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 15000000 U_CLK_GEN.rst_flag = U_CLK_GEN.rst_flag + 1 ;
+
+*/
+//########################################//
+//            KILL PWD VERIFY             //
+//########################################//
+/*# 1000001 U_INTERROGATOR_BFM.push_to_Open;
+
+# 1000011 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Access(4'b0000,16'h0514);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Access(4'b0001,16'h0514);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Kill;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.push_to_Open;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd0,16'd01,16'hFFFF);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Write(`SEC,16'd1,16'd01,16'hFFFF);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 15000000 U_CLK_GEN.rst_flag = U_CLK_GEN.rst_flag + 1 ;
+
+
+//########################################//
+//            KILL PWD VERIFY             //
+//########################################//
+# 1000001 U_INTERROGATOR_BFM.push_to_Open;
+
+# 1000011 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Access(4'b0000,16'hFFFF);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+//# 1000011 U_INTERROGATOR_BFM.send_Query(`TAG_ALL,`TARGET0,`TREXT,`DR_0d25,`M_FM0);
+//# 1000011 U_INTERROGATOR_BFM.send_Ack;
+//# 1000011 U_INTERROGATOR_BFM.send_Read(`TBI,16'd00,16'd8);
+
+# 1000011 U_INTERROGATOR_BFM.send_Get_RN;
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Get_RN_Reply(U_INTERROGATOR_BFM.rn16_Get_RN);
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Access(4'b0001,16'hFFFF);
+U_INTERROGATOR_BFM.Decode;
+U_INTERROGATOR_BFM.get_Access_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+
+# 1000011 U_INTERROGATOR_BFM.send_Kill;
+U_INTERROGATOR_BFM.Decode;
+//U_INTERROGATOR_BFM.get_WELK_Reply;
+U_INTERROGATOR_BFM.send_done = $time;
+
+# 1000011 U_INTERROGATOR_BFM.send_Nak;
+
+# 1000001 U_INTERROGATOR_BFM.push_to_Open;
+
+//*/
+
+
+
+
+
+
+
+
