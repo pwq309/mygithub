@@ -93,3 +93,12 @@ $(function(){
         }
     })
 })
+
+$(function () {
+    $("select").bind("change", function () {
+        if ($(this).val() == "中文")
+            window.location.href="http://ribresume.sinaapp.com";
+        else
+            window.location.href="http://ribcven.sinaapp.com";
+    })
+});
