@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Change Table</title>
+</head>
+<body>
+<table id="myTable">
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+    </tr>
+</table>
+<input type="button" value="change" onclick="change('myTable')"/>
+</body>
+<script type="text/javascript">
+    function change(id){
+        var tab = document.getElementById(id);
+        var tr = tab.getElementsByTagName('tr')
+        for(var i = 0; i<tr.length; i++){
+            var td = tr[i].getElementsByTagName('td');
+            for(var j = 0;j<td.length; j++){
+                tr[i].appendChild(td[td.length-1-j]);
+            }
+        }
+    }
+</script>
+</html>

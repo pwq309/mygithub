@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>计划表</title>
+</head>
+<body>
+<h1 align="center">出游计划表</h1>
+<table width="300" frame="box" rules="cols" cellspacing="0px" style="border-collapse: collapse" bordercolor="#000000" align="center" id="tb">
+    <tr>
+        <th>姓名</th>
+        <td>张三</td>
+        <td>李四</td>
+        <td>王五</td>
+        <th rowspan="4" id="tj">统计</th>
+    </tr>
+    <tr>
+        <th>家属数</th>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+    </tr>
+    <tr>
+        <th>交钱</th>
+        <td>300</td>
+        <td>400</td>
+        <td>500</td>
+    </tr>
+    <tr>
+        <th>备注</th>
+        <td colspan="3">好好玩</td>
+    </tr>
+</table>
+<script src="./scripts/jquery-1.11.3.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $("#tb tbody tr:odd").css("backgroundColor","grey");
+    $("#tj").css("backgroundColor","white");
+</script>
+</body>
+</html>

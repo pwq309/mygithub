@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <script src="http://apps.bdimg.com/libs/angular.js/1.2.16/angular.min.js"></script>
+</head>
+<body>
+Your name: <input type="text" ng-model="yourname" placeholder="World">
+<hr>
+Hello {{yourname || 'World'}}!
+</body>
+</html>

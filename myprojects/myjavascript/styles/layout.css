@@ -1,0 +1,44 @@
+body{
+    font-family: helvetica,Arial,serif;
+    color:#333;
+    background-color: #ccc;
+    margin: 1em 10%;   /*上下外边距是1em ，左右外边距是10%，em是相对长度单位，相对于当前对象内文本的字体尺寸*/
+}
+h1{
+    color:#333;
+    background-color: transparent;
+}
+a{
+    color: #c60;
+    background-color: transparent;
+    font-weight:bold;
+    text-decoration:none;  /*文本修饰，不加下划线*/
+}
+ul{
+    padding:0;/*内边距*/
+}
+li{
+    float:left;
+    padding:1em;
+    list-style:none;
+}
+
+img{
+    display:block;  /*规定元素应该生成框的类型，此元素显示为块级元素*/
+    clear:both;     /*规定元素哪一侧不允许其他浮动元素*/
+}
+
+#imagegallery{
+    list-style: none;
+}
+#imagegallery li{
+    dsiplay:inline;
+}
+#imagegallery li a img{
+    border: 0;
+}
+#description{
+    color: #c60;
+    background-color: transparent;
+    font-weight:bold;
+}

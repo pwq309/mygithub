@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Generate table with Js</title>
+</head>
+<style type="text/css">
+    td{
+        width:50px;
+        height:50px;
+        border:2px solid #000;
+    }
+</style>
+<body>
+<label>行<input type="text" id="rowNum"/></label>
+<label>列<input type="text" id="colNum"/></label>
+<input type="button" value="生成" onclick="getTable()"/>
+<div id="tableContainer"></div>
+<script type="text/javascript">
+    function getTable(){
+        var rowNum = document.getElementById("rowNum").value;//行数量
+        var colNum = document.getElementById("colNum").value;//列数量
+        var tab = document.createElement("table");//创建Table
+        var container = document.getElementById("tableContainer");//获取div容器
+        for(var i=0;i<rowNum;i++){
+            var row = document.createElement("tr");//创建tr行
+            for(var j=0;j<colNum;j++){
+                var col = document.createElement("td");//创建td列
+                row.appendChild(col);//将td列添加到tr行中
+            }
+            tab.appendChild(row);//将tr行添加到tab表格中
+        }
+        container.innerHTML="";//清除容器中内容
+        container.appendChild(tab);//将table添加到div容器中
+    }
+</script>
+</body>
+</html>

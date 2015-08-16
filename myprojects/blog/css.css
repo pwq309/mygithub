@@ -1,0 +1,87 @@
+/*基本信息*/
+body {
+    font:12px Tahoma;
+    margin:0px;
+    text-align:center;
+    background:#FFF;
+}
+a:link,a:visited {
+    font-size:12px;
+    text-decoration: none;
+}
+a:hover{}
+
+/*页面层容器*/
+#container {
+    width:800px;
+    margin:10px auto
+}
+
+/*页面头部*/
+#header {background:url(logo.gif) no-repeat}
+#menu {padding:20px 20px 0 0}
+#menu ul {
+    float:right;
+    list-style:none;
+    margin:0px;
+}
+#menu ul li {
+    float:left;
+    display:block;
+    line-height:28px;
+    margin:0 10px
+}
+#menu ul li a:link,#menu ul li a:visited {
+    font-weight:bold;
+    color:#666
+}
+#menu ul li a:hover{}
+.menuDiv {
+    width:1px;
+    height:28px;
+    background:#999
+}
+#banner {
+    background:url(banner.jpg) 0 30px no-repeat;
+    width:730px;
+    margin:auto;
+    height:240px;
+    border-bottom:5px solid #EFEFEF;
+    clear:both
+}
+
+/*页面主体*/
+#pagebody {
+    width:730px;
+    margin:8px auto;
+}
+
+/*页面底部*/
+#footer {
+    width:800px;
+    margin:0 auto;
+    height:50px;
+    background:#00FFFF;
+}
+
+#sidebar {
+    width:140px; /*设定宽度*/
+    text-align:left; /*文字左对齐*/
+    float:left; /*浮动居左*/
+    clear:left; /*不允许左侧存在浮动*/
+    overflow:hidden; /*超出宽度部分隐藏*/
+    border:1px solid #E00;
+    height:200px;
+}
+#mainbody {
+    width:538px;
+    text-align:left;
+    float:right; /*浮动居右*/
+    clear:right; /*不允许右侧存在浮动*/
+    overflow:hidden;
+    border:1px solid #E00;
+    height:200px;
+}
+.clear {
+    clear:both;
+}

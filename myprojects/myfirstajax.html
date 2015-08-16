@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>my first ajax</title>
+</head>
+<body>
+<input type="button" id="send" value="Ajax获取"/>
+<input type="button" id="sendpart" value="获取部分"/>
+<div class="comment">已有评论：</div>
+<div id="resText"></div>
+<div id="partText"></div>
+<script src="./scripts/jquery-1.11.3.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#send").click(function(){
+            $("#resText").load("test.html");
+        });
+    });
+    $(function(){
+        $("#sendpart").click(function(){
+            $("#partText").load("test.html .para");
+        });
+    });
+</script>
+</body>
+</html>
