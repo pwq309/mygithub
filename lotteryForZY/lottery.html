@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="cmn-Hans">
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="钟美丽公众号开奖啦" />
+<script type="text/javascript">
+! function(a) {
+    function b() {
+        a.rem = f.getBoundingClientRect().width / 16, f.style.fontSize = a.rem + "px"
+    }
+    var c, d = a.devicePixelRatio,
+        e = 1 / d,
+        f = document.documentElement,
+        g = document.createElement("meta");
+    if (a.dpr = d, a.addEventListener("resize", function() {
+            clearTimeout(c), c = setTimeout(b, 300)
+        }, !1), a.addEventListener("pageshow", function(a) {
+            a.persisted && (clearTimeout(c), c = setTimeout(b, 300))
+        }, !1), f.setAttribute("data-dpr", d), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + e + ", maximum-scale=" + e + ", minimum-scale=" + e + ", user-scalable=no"), f.firstElementChild) f.firstElementChild.appendChild(g);
+    else {
+        var h = document.createElement("div");
+        h.appendChild(g), document.write(h.innerHTML)
+    }
+    b()
+}(window);
+</script>
+
+    <title>钟美丽公众号开奖啦</title>
+
+    <link href="./lottery.css" rel="stylesheet" media="all" />
+</head>
+
+<body>
+    <!-- <div class="bg-head"></div> -->
+<!--     <div class="dzp-bnr">
+        <div class="head-title"></div>
+        <div class="my-shell">
+            <i class="ico-shell"></i>
+            <span class="shell-txt">我的贝壳：</span>
+            <span class="my-shell-num" id="J_my-shell-num">0</span>
+            <span class="my-shell-num">个</span>
+        </div>
+    </div> -->
+<!--     <nav class="dzp-tab">
+        <div class="list">
+            <div id="J_my-awards" class="item">
+                <a href="/app/member/dzp-awards.html">
+                    <i class="ico-gift"></i> 我的奖品
+                </a>
+            </div>
+            <span class="line"></span>
+            <div id="J_rules" class="item">
+                <i class="ico-rule"></i> 活动规则
+            </div>
+            <span class="line"></span>
+            <div class="item">
+                <a href='http://m.beibei.com/oversea/oversea-index.html?beibeiapp_info={"target":"oversea"}'>
+                    <i class="ico-oversea"></i> 去全球购
+                </a>
+            </div>
+
+        </div>
+    </nav> -->
+    <div id="J_zp" class="zp">
+        <div id="J_zp-inner" class="zp-inner">
+            <div class="cell cell-1 J_awardItem J_awardItem8">
+                <div class="cell-inner">
+                    <div class="cell-inner-inner">
+                    </div>
+                </div>
+            </div>
+            <div class="cell cell-2 J_awardItem J_awardItem1">
+                <div class="cell-inner">
+                    <div class="cell-inner-inner">
+                    </div>
+                </div>
+            </div>
+            <div class="cell cell-3 J_awardItem J_awardItem2">
+                <div class="cell-inner">
+                    <div class="cell-inner-inner">
+                    </div>
+                </div>
+            </div>
+            <div class="cell cell-4 J_awardItem J_awardItem7">
+                <div class="cell-inner">
+                    <div class="cell-inner-inner">
+                    </div>
+                </div>
+            </div>
+            <div class="cell-start cell-5">
+                <div class="cell-inner">
+                    <div class="start-btn J_startBtn">
+                        <span id="btn-text">抽 奖</span>
+                    </div>
+                </div>
+                <div class='cell-inner-inner hidden'></div>
+            </div>
+            <div class="cell cell-6 J_awardItem J_awardItem3">
+                <div class="cell-inner">
+                    <div class="cell-inner-inner">
+                    </div>
+                </div>
+            </div>
+            <div class="cell cell-7 J_awardItem J_awardItem6">
+                <div class="cell-inner">
+                    <div class="cell-inner-inner">
+                    </div>
+                </div>
+            </div>
+            <div class="cell cell-8 J_awardItem J_awardItem5">
+                <div class="cell-inner">
+                    <div class="cell-inner-inner">
+                    </div>
+                </div>
+            </div>
+            <div class="cell cell-9 J_awardItem J_awardItem4">
+                <div class="cell-inner">
+                    <div class="cell-inner-inner">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--     <div id="J_dzp-rank" class="dzp-rank hidden">
+        <img src="http://b0.hucdn.com/party/2016/5/upload_dd0d30959893d0ff26d3ce22c5631430_703x89.png" alt="标题">
+        <h2 class="tit">今日中奖名单</h2>
+        <div id="J_rank-list" class="list">
+        </div>
+    </div> -->
+    <div id="J_popup" class="dzp-popup hidden">
+    </div>
+<!--     <div id="J_login-dialog" class="dialog hidden">
+        <div class="dialog-inner">
+            <img style="width: 3.136rem;height: 2.667rem;" src="http://b0.hucdn.com/party/default/c58d1d5beb29ac39c22ab30773fe023b.png" alt="" />
+            <div class="content">亲，签到需要先登录哦</div>
+            <div class="btn-group">
+                <a class="btn" href='http://m.beibei.com?beibeiapp_info={"target":"home"}'>随便逛逛 </a>
+                <a id="J_go-login" class="btn" href="javascript:;">去登录</a>
+            </div>
+        </div>
+    </div> -->
+<!--     <div id="J_rule-popup" class="rule popup-ani hidden">
+        <div class="rule-inner">
+            <div class="rule-wrap">
+                <h2>活动规则</h2>
+                <ul class="list">
+                    <li class="title">活动规则</li>
+                    <li>1.每抽奖一次消耗10贝壳，每人每天抽奖次数不设上限。</li>
+                </ul>
+                <ul class="list">
+                    <li class="title">活动奖品</li>
+                    <li>1.本活动奖品包括贝壳 、优惠券及全球购免单卡。
+                    </li>
+                    <li>2.全球购免单卡抽中后，请务必填写收货信息，包括有效的收货地址、联系电话。工作人员将在15个工作日内寄出。
+                    </li>
+                </ul>
+                <ul class="list">
+                    <li class="title">注意事项</li>
+                    <li>1.凡以不正当手段（包括但不限于作弊、扰乱系统、实施网络攻击等）参与本次活动的用户，贝贝有权终止其参与活动，取消其获奖资格。</li>
+                    <li>2.贝贝可根据活动举办的实际情况，在法律允许的范围内，对本活动活动规则进行变动或调整并公布在活动规则上面。</li>
+                    <li>3.活动奖品均由贝贝网承担，与苹果公司无关。 </li>
+                </ul>
+                <ul class="list">
+                    <li>如有疑问请联系贝贝客服。</li>
+                </ul>
+            </div>
+            <div class="btn-know">我知道了</div>
+        </div>
+    </div> -->
+    <script id="J_popup-tpl" type="text/template">
+        {@if type==1}
+        <div class="dzp-popup-inner" typeid="1">
+            <img class="ico-happy" src="./650327178188976689.jpg">
+            <i class="btn-close"></i>
+            <p class="line1">恭喜您，抽中大奖！</p>
+            <p class="line2">${msg}</p>
+            <a class="btn-again" href="javascript:;">继续抽奖</a>
+        </div>
+        {@else if type==2}
+        <div class="dzp-popup-inner" typeid="2">
+            <img class="ico-happy" src="./658121265447387768.jpg">
+            <i class="btn-close"></i>
+            <p class="line1">简直逆天！</p>
+            <p class="line2">${msg}</p>
+            <a class="btn-again" href="javascript:;">继续抽奖</a>
+        </div>
+        {@else if type==3}
+        <div class="dzp-popup-inner" typeid="3">
+            <img class="ico-happy" src="./696675646471285472.jpg">
+            <i class="btn-close"></i>
+            <p class="line1">您上辈子一定拯救了银河系吧！</p>
+            <p class="line2">${msg}</p>
+            <a class="btn-again" href="javascript:;">继续抽奖</a>
+        </div>
+        {@else if type==4}
+        <div class="dzp-popup-inner" typeid="4">
+            <img class="ico-happy" src="./850107939842609921.jpg">
+            <i class="btn-close"></i>
+            <p class="line1">简直逆天！</p>
+            <p class="line2">${msg}</p>
+            <a class="btn-again" href="javascript:;">继续抽奖</a>
+        </div>
+        {@/if}
+    </script>
+
+    <script type="text/javascript" src="./zepto.min.js"></script>
+    <script type="text/javascript" src="./lottery.js"></script>
+</body>
+
+</html>
