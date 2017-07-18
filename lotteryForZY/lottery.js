@@ -1,7 +1,5 @@
 
-// @desc 前段模板引擎 参照 juicer http://juicer.name
-// @author 王玉林 <veryued@gmail.com>
-// @date 2014-08-11
+
 
 var juicer = function() {
     var args = [].slice.call(arguments);
@@ -681,19 +679,6 @@ var Lottery = {
 
             //按钮文案修改成“抽奖中”
             $('#btn-text').html('抽奖中');
-
-            // $.ajax({
-            //     url: 'http://api.beibei.com/mroute.html?method=beibei.user.lottery.process',
-            //     type: 'GET',
-            //     dataType: 'json',
-            //     data: {
-            //         utm_source: '23801'
-            //     },
-            //     xhrFields: {
-            //         withCredentials: true
-            //     },
-            //     success: function(resp) {
-                    // if (resp.success) {
                         var data = String(random(0, 7));
                         switch (data) {
                             case '1':
@@ -770,21 +755,8 @@ var Lottery = {
                                 break;
                         }
 
-                    // } else {
-                    //     popup.note(resp.message);
-                    //     //按钮文案修回正常状态
-                    //     $('#btn-text').html('抽 奖');
-                    // }
-
                     $('.active').removeClass('active');
                     that.loading = false;
-                // },
-                // error: function() {
-                //     popup.alert('网络繁忙，请稍后再试...');
-                //     //按钮文案修回正常状态
-                //     $('#btn-text').html('抽 奖');
-                // }
-            // });
         }
     }
 }
